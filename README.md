@@ -3,6 +3,53 @@
 A hands-on path from "first API call" to "evaluated, production-minded agents", using the
 official Anthropic Java SDK (`com.anthropic:anthropic-java`). Java 20, Maven.
 
+## Capstone: Research Assistant Agent
+
+One research question in, a cited brief of at most 500 words out. Built on Claude Haiku 5.5 with
+Anthropic's server-side web search. Code: [`src/main/java/org/example/capstone/`](src/main/java/org/example/capstone/).
+
+```mermaid
+flowchart LR
+    Q[Question] --> P[Planner<br/>3 sub-questions]
+    P --> R1[Researcher 1<br/>web search]
+    P --> R2[Researcher 2<br/>web search]
+    P --> R3[Researcher 3<br/>web search]
+    R1 --> F[R1 filter<br/>drop URLs not in search results]
+    R2 --> F
+    R3 --> F
+    F --> S[Synthesizer<br/>typed Report]
+    S --> V[Validator<br/>R1 sources, R3 length]
+    V --> B[Brief in reports/]
+```
+
+What makes it more than a prompt:
+- **Guardrails in code, not only in prompts:** every cited URL must come from a real search result
+  (invented URLs are removed, near-misses snapped to the real one); a word limit; empty briefs rejected.
+- **Cost limits:** hard cap per run and per stage, 15-call limit; a $0.01 cap ends in a partial
+  "INCOMPLETE" brief, not an exception.
+- **Failure handling:** a failed or slow researcher is dropped and the run continues; the synthesizer
+  is retried once; a dead-server fault test runs for free.
+- **Prompt-injection test:** 5/5 cases pass (override, fake source, prompt leak, language switch).
+- **Eval set:** 10 questions with known facts and an automatic grader, baseline (one agent) vs pipeline.
+
+Results on the 10-question eval (one run per question, one small model):
+
+| | valid briefs | expected facts found | invented URLs | cost per run | time | calls |
+|---|---|---|---|---|---|---|
+| Pipeline (planner + 3 researchers + synthesizer) | 10/10 | 93% | 0 | $0.07 | 18 s | 5 |
+| Single searching agent (baseline) | about 9/10 | about 93-97% | 0 | $0.03 | 8-16 s | 1 |
+
+The honest finding: on these mostly simple lookups one searching agent covers about as many facts at
+under half the cost. The team's gains are validity and the comparison question. It would need
+harder, multi-part questions to justify itself. The baseline numbers mix two configurations.
+
+The full step-by-step log, every failure and what it taught (thinking tokens count against
+`maxTokens`, no thinking means no search, validators must check things exist) is in
+[CAPSTONE.md](CAPSTONE.md). [`langgraph-version/`](langgraph-version/) is an untested sketch of the same
+pipeline as a LangGraph graph.
+
+Run it: `mvn -q compile exec:java -Dexec.mainClass=org.example.capstone.Main -Dexec.args="Your question"`
+
 ## Setup
 
 1. Get an API key at https://console.anthropic.com and export it:
@@ -43,12 +90,6 @@ Lesson 7 shares a small helper, `lesson07.Llm`, which lesson 9a reuses.
   user can; use a container for untrusted tasks.
 - **MCP connector** needs a public HTTPS server URL (Lesson 8a defaults to DeepWiki; pass your
   own as the first argument if it fails).
-
-## Next: capstone
-
-A research agent that searches, reads, and writes a report. Suggested pieces: the Lesson 4
-loop plus a web search tool, a subagent per sub-question, a `Budget` from Lesson 9b, and an
-eval set of ~10 questions with known answers.
 
 ## Reading alongside
 
