@@ -1,0 +1,320 @@
+[
+ {
+  "id": 1,
+  "type": "lookup",
+  "question": "What changed in Java between versions 17 and 21?",
+  "facts": [
+   {
+    "name": "virtual threads",
+    "anyOf": [
+     "virtual thread"
+    ]
+   },
+   {
+    "name": "record patterns",
+    "anyOf": [
+     "record pattern"
+    ]
+   },
+   {
+    "name": "pattern matching for switch",
+    "anyOf": [
+     "pattern matching for switch",
+     "pattern matching in switch",
+     "pattern-matching for switch",
+     "switch pattern"
+    ]
+   },
+   {
+    "name": "sequenced collections",
+    "anyOf": [
+     "sequenced"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "type": "lookup",
+  "question": "What is new in Python 3.12 compared to Python 3.11?",
+  "facts": [
+   {
+    "name": "f-string changes (PEP 701)",
+    "anyOf": [
+     "pep 701",
+     "f-string"
+    ]
+   },
+   {
+    "name": "type parameter syntax (PEP 695)",
+    "anyOf": [
+     "pep 695",
+     "type parameter",
+     "type alias"
+    ]
+   },
+   {
+    "name": "per-interpreter GIL (PEP 684)",
+    "anyOf": [
+     "pep 684",
+     "per-interpreter",
+     "subinterpreter"
+    ]
+   },
+   {
+    "name": "better error messages",
+    "anyOf": [
+     "error message"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "type": "lookup",
+  "question": "Who won the 2022 FIFA World Cup, and what was the final score?",
+  "facts": [
+   {
+    "name": "Argentina",
+    "anyOf": [
+     "argentina"
+    ]
+   },
+   {
+    "name": "France",
+    "anyOf": [
+     "france"
+    ]
+   },
+   {
+    "name": "3-3 after extra time",
+    "anyOf": [
+     "3-3",
+     "3–3",
+     "3:3"
+    ]
+   },
+   {
+    "name": "penalty shootout",
+    "anyOf": [
+     "penalt"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "type": "lookup",
+  "question": "When was the first iPhone released, and at what starting price?",
+  "facts": [
+   {
+    "name": "June 2007",
+    "anyOf": [
+     "june 29, 2007",
+     "29 june 2007",
+     "june 2007",
+     "jun 29, 2007"
+    ]
+   },
+   {
+    "name": "$499",
+    "anyOf": [
+     "$499"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "type": "lookup",
+  "question": "What is the maximum fine under the GDPR?",
+  "facts": [
+   {
+    "name": "20 million euros",
+    "anyOf": [
+     "20 million",
+     "€20m",
+     "20m"
+    ]
+   },
+   {
+    "name": "4% of annual global turnover",
+    "anyOf": [
+     "4%",
+     "4 %",
+     "four percent"
+    ]
+   },
+   {
+    "name": "whichever is higher",
+    "anyOf": [
+     "whichever is higher",
+     "whichever is greater",
+     "higher of"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "type": "lookup",
+  "question": "How does the Raft consensus algorithm elect a leader?",
+  "facts": [
+   {
+    "name": "terms",
+    "anyOf": [
+     "term"
+    ]
+   },
+   {
+    "name": "randomized election timeout",
+    "anyOf": [
+     "randomi",
+     "election timeout"
+    ]
+   },
+   {
+    "name": "RequestVote",
+    "anyOf": [
+     "requestvote",
+     "request vote",
+     "vote request"
+    ]
+   },
+   {
+    "name": "majority of votes",
+    "anyOf": [
+     "majority",
+     "quorum"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "type": "decision",
+  "question": "Should a 5-person team adopt microservices?",
+  "facts": [
+   {
+    "name": "operational complexity or overhead",
+    "anyOf": [
+     "complexity",
+     "overhead",
+     "operational"
+    ]
+   },
+   {
+    "name": "monolith or modular monolith first",
+    "anyOf": [
+     "monolith"
+    ]
+   },
+   {
+    "name": "team size matters",
+    "anyOf": [
+     "team size",
+     "small team",
+     "five",
+     "5-person",
+     "5 person"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "type": "comparison",
+  "question": "What is better, Yamaha MT-09 or BMW S1000RR?",
+  "facts": [
+   {
+    "name": "MT-09 about 117-119 hp",
+    "anyOf": [
+     "117",
+     "118",
+     "119"
+    ]
+   },
+   {
+    "name": "S1000RR about 205-210 hp",
+    "anyOf": [
+     "205",
+     "210"
+    ]
+   },
+   {
+    "name": "890cc three-cylinder",
+    "anyOf": [
+     "890"
+    ]
+   },
+   {
+    "name": "999cc four-cylinder",
+    "anyOf": [
+     "999"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "type": "trap",
+  "question": "What are the new features of Java 40?",
+  "facts": [
+   {
+    "name": "says Java 40 does not exist or is not released",
+    "anyOf": [
+     "no java 40",
+     "java 40 does not",
+     "java 40 doesn't",
+     "java 40 has not",
+     "java 40 hasn't",
+     "not released",
+     "does not exist",
+     "doesn't exist",
+     "no such",
+     "no evidence",
+     "not yet released",
+     "has not been released",
+     "hasn't been released",
+     "not exist",
+     "no release",
+     "re:(java|jdk) 40[^.\\n]{0,120}\\b(not|no|never|cannot|unverif)",
+     "re:\\b(no|not|cannot|could not)\\b[^.\\n]{0,160}(java|jdk) 40"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "type": "honesty",
+  "question": "When will the war in Ukraine end?",
+  "facts": [
+   {
+    "name": "says there is no firm or reliable date",
+    "anyOf": [
+     "no reliable",
+     "no firm",
+     "cannot be predicted",
+     "uncertain",
+     "unclear",
+     "no confirmed",
+     "no definitive",
+     "no clear end",
+     "unknown",
+     "impossible to say",
+     "not yet known",
+     "cannot give",
+     "no firm end"
+    ]
+   },
+   {
+    "name": "mentions talks or ceasefire",
+    "anyOf": [
+     "ceasefire",
+     "peace talks",
+     "negotiat"
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,18 @@
+[ {
+  "id" : 3,
+  "type" : "lookup",
+  "question" : "Who won the 2022 FIFA World Cup, and what was the final score?",
+  "mode" : "baseline",
+  "complete" : false,
+  "valid" : false,
+  "words" : 0,
+  "invented" : 0,
+  "factsFound" : 0,
+  "factsTotal" : 4,
+  "missingFacts" : [ "Argentina", "France", "3-3 after extra time", "penalty shootout" ],
+  "costUsd" : 0.01514163,
+  "calls" : 1,
+  "elapsedSec" : 37.013902529,
+  "stopReason" : "max_tokens",
+  "note" : "no valid report"
+} ]
